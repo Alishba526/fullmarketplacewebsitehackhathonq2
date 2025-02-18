@@ -149,7 +149,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
               {product.title}
             </h1>
             <p className="mt-4 text-2xl font-semibold text-blue-600">
-              ${product.price.toFixed(2)}
+              RS {product.price}
             </p>
           </div>
 

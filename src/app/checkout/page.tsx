@@ -69,7 +69,7 @@ const Checkout = () => {
       localStorage.removeItem('cartItems'); // Clear the cart after successful order
     } catch (error) {
       console.error('Error placing order:', error);
-      Swal.fire('Error', `There was an issue placing your order. Please try again. Error: ${(error as Error).message}`, 'error');
+      Swal.fire('Error', `There was an issue placing your order. Please try again. Error: RS {(error as Error).message}`, 'error');
     }
   };
 
@@ -119,7 +119,7 @@ const Checkout = () => {
               <div>
                 <p className="font-medium">{item.title}</p>
                 <p className="text-gray-600">Quantity: {item.quantity}</p>
-                <p className="font-semibold">₹{item.price}</p>
+                <p className="font-semibold">RS {item.price}</p>
                 <div className="flex items-center space-x-3">
                   <button
                     onClick={() => handleQuantityChange(item._id, 'decrement')}
@@ -146,13 +146,13 @@ const Checkout = () => {
             </div>
           ))}
           <hr className="my-4" />
-          <p className="text-lg font-semibold">Total: <span className="text-blue-600">₹{calculateTotalPrice().toFixed(2)}</span></p>
+          <p className="text-lg font-semibold">Total: <span className="text-blue-600">RS {calculateTotalPrice()}</span></p>
         </div>
 
         {/* Billing Information */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Billing Information</h2>
-          <form className="grid gap-3" onSubmit={handleSubmit}>
+          {/* <form className="grid gap-3" onSubmit={handleSubmit}>
             <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleInputChange} className="p-2 border rounded" />
             <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleInputChange} className="p-2 border rounded" />
             <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleInputChange} className="p-2 border rounded" />
@@ -161,7 +161,20 @@ const Checkout = () => {
             <input type="text" name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange} className="p-2 border rounded" />
             <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} className="p-2 border rounded" />
             <button type="submit" className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Place Order</button>
-          </form>
+          </form> */}
+
+
+<form className="grid gap-3" onSubmit={handleSubmit}>
+  <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleInputChange} className="p-2 border rounded" required />
+  <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleInputChange} className="p-2 border rounded" required />
+  <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleInputChange} className="p-2 border rounded" required />
+  <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleInputChange} className="p-2 border rounded" required />
+  <input type="text" name="zipcode" placeholder="Zip Code" value={formData.zipcode} onChange={handleInputChange} className="p-2 border rounded" required />
+  <input type="text" name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange} className="p-2 border rounded" required />
+  <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} className="p-2 border rounded" required />
+  <button type="submit" className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Place Order</button>
+</form>
+
         </div>
       </div>
     </div>

@@ -68,7 +68,7 @@ const Cart = () => {
 
               <div className="text-center">
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h2>
-                <p className="text-lg text-gray-600 mb-4">₹{item.price}</p>
+                <p className="text-lg text-gray-600 mb-4">RS {item.price}</p>
 
                 <div className="flex justify-center items-center space-x-3 mb-6">
                   <button
@@ -107,7 +107,7 @@ const Cart = () => {
       <div className="mt-12 flex justify-center items-center">
         <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 rounded-lg shadow-xl text-white flex justify-between items-center w-full max-w-lg">
           <h2 className="text-2xl font-semibold">Total Price</h2>
-          <p className="text-3xl font-bold">₹{calculateTotalPrice().toFixed(2)}</p>
+          <p className="text-3xl font-bold">RS {calculateTotalPrice().toFixed(2)}</p>
         </div>
       </div>
 
